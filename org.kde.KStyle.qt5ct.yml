@@ -1,0 +1,28 @@
+id: org.kde.KStyle.qt5ct
+branch: '5.15'
+runtime: org.kde.Platform
+runtime-version: '5.15'
+sdk: org.kde.Sdk
+build-extension: true
+separate-locales: false
+appstream-compose: false
+
+modules:
+  - name: qt5ct
+    buildsystem: qmake
+    config-opts:
+      - PREFIX=${FLATPAK_DEST}
+      - PLUGINDIR=${FLATPAK_DEST}
+    sources:
+      - type: git
+        url: https://github.com/desktop-app/qt5ct.git
+        commit: 9f60cd2352a4dcc55c8ca267f29bd8fff5c6a659
+
+  - name: appdata
+    buildsystem: simple
+    build-commands:
+      - install -Dm644 ${FLATPAK_ID}.appdata.xml -t ${FLATPAK_DEST}/share/appdata/
+      - appstream-compose --basename=${FLATPAK_ID} --prefix=${FLATPAK_DEST} --origin=flatpak ${FLATPAK_ID}
+    sources:
+      - type: file
+        path: org.kde.KStyle.qt5ct.appdata.xml

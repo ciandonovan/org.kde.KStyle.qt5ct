@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="runtime">
+    <id>org.kde.KStyle.qt5ct</id>
+    <metadata_license>CC0-1.0</metadata_license>
+    <name>qt5ct</name>
+    <summary>Qt5 Configuration Tool</summary>
+    <description>
+        <p>This program allows users to configure Qt5 settings (theme, font, icons, etc.) under DE/WM without Qt integration.</p>
+    </description>
+    <url type="homepage">https://github.com/desktop-app/qt5ct</url>
+</component>
